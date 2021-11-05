@@ -91,13 +91,14 @@ and updating the game state as necessary.
 8. If the letter is correct and appears multiple times, returns "There are
    {count} {guess}s".
 
-TODO: Add Image of flowchart
+![Image](CheckGuessstring_guess.png)
 
 ### CountLetter(char guess)
 
 Counts the number of times the specified character appears in the word to be
 guessed. The case of the letter specified is ignored.
 
+![Image]()
 Algorithm:
 
 1. Check that `guess` is a letter. If it is not a letter, throw an `ArgumentException`.
@@ -114,6 +115,7 @@ Algorithm:
 Returns a string containing each letter that has been guessed in the order that
 they were guessed.
 
+![Image](getguessedletters.png)
 Algorithm:
 
 1. Create an empty string that will accumulate the letters that have been guessed.
@@ -134,6 +136,7 @@ Returns the word that is to be guessed without any missing letters.
 Returns the word that is to be guessed with each letter that has not yet been
 guessed replaced with an underscore.
 
+![Image](getword.png)
 Algorithm:
 
 1. Create an empty string that will accumulate the word to be displayed.
