@@ -108,7 +108,7 @@ Algorithm:
    * If it is the guess, increment the count.
 5. After checking every letter, return the count.
 
-TODO: Add Image of flowchart
+![Image](CountLetter.png)
 
 ### GetGuessedLetters()
 
