@@ -9,7 +9,10 @@ Marielle Alden
 
 ## Member Variables
 
-TODO: List your member variables here
+List<char> guessedLetters;
+int incorrectGuessCount;
+int guessLimit;
+string wordToGuess;
 
 ## Constructors
 
@@ -75,6 +78,8 @@ game is over.
 
 Checks a users guess and returns a string message informing them of the result
 and updating the game state as necessary.
+
+![Image](CheckGuessstring_guess.png)
         
 1. The guess is sanitized such that the case, preceding, and trailing white
    space are ignored.
@@ -91,14 +96,13 @@ and updating the game state as necessary.
 8. If the letter is correct and appears multiple times, returns "There are
    {count} {guess}s".
 
-![Image](CheckGuessstring_guess.png)
-
 ### CountLetter(char guess)
 
 Counts the number of times the specified character appears in the word to be
 guessed. The case of the letter specified is ignored.
 
-![Image]()
+![Image](CountLetter.png)
+
 Algorithm:
 
 1. Check that `guess` is a letter. If it is not a letter, throw an `ArgumentException`.
@@ -108,22 +112,19 @@ Algorithm:
    * If it is the guess, increment the count.
 5. After checking every letter, return the count.
 
-![Image](CountLetter.png)
-
 ### GetGuessedLetters()
 
 Returns a string containing each letter that has been guessed in the order that
 they were guessed.
 
 ![Image](getguessedletters.png)
+
 Algorithm:
 
 1. Create an empty string that will accumulate the letters that have been guessed.
 2. Iterate through every character that has been guessed
    * Append the character to the string
 3. Trim the string and return it
-
-TODO: Add Image of flowchart
 
 ### GetFullWord()
 
@@ -137,6 +138,7 @@ Returns the word that is to be guessed with each letter that has not yet been
 guessed replaced with an underscore.
 
 ![Image](getword.png)
+
 Algorithm:
 
 1. Create an empty string that will accumulate the word to be displayed.
@@ -145,4 +147,3 @@ Algorithm:
    * If the letter has not been guessed (else), append an underscore to the string
 3. Trim the string and return it.
 
-TODO: Add Image of flowchart
