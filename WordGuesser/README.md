@@ -79,7 +79,7 @@ game is over.
 Checks a users guess and returns a string message informing them of the result
 and updating the game state as necessary.
 
-![Image](CheckGuessstring_guess.png)
+![Image](CheckGuess.png)
         
 1. The guess is sanitized such that the case, preceding, and trailing white
    space are ignored.
