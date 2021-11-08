@@ -9,10 +9,10 @@ Marielle Alden
 
 ## Member Variables
 
-List<char> guessedLetters;
-int incorrectGuessCount;
-int guessLimit;
-string wordToGuess;
+List<char> guessedLetters; // list of all the player's guessed letters
+int incorrectGuessCount; // counts the number of incorrect guesses
+int guessLimit; // stores the maxiumum amount of guesses (greater than 0)
+string wordToGuess; // stores the word to be guessed
 
 ## Constructors
 
