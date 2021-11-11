@@ -5,7 +5,7 @@ namespace WordGuesser
 
     public class WordGame : IWordGame
     {
-// marielle
+        // marielle
 
         private string fullWord;
         private List<char> lettersGuessed;
@@ -14,7 +14,7 @@ namespace WordGuesser
 
         public WordGame(string wordToGuess, int guessLimit)
         {
-             if (guessLimit <= 0)
+            if (guessLimit <= 0)
             {
                 throw new ArgumentException($"Illegal guessLimit '{guessLimit}'. The guess limit must be greater than 0.");
             }
@@ -34,50 +34,97 @@ namespace WordGuesser
             this.lettersGuessed = new List<char>();
         }
 
-            public string CheckGuess(string guess)
+        public string CheckGuess(string guess)
         {
             throw new System.NotImplementedException();
         }
-// austin 
+    
+        // austin DID
         public int CountLetter(char guess)
         {
-            throw new System.NotImplementedException();
+            if (char.IsLetter(guess) == false)
+            {
+                throw new ArgumentException("Invalid character:{guess}.");
+            }
+            else
+            {
+                char.ToUpper(guess);
+                guess = Result;
+                int count;
+                count = 0; 
+
+                foreach (char c in this.fullWord)
+                {
+                    if (c == guess)
+                    {
+                        count = count + 1;
+                    }
+                }
+            }
+            int count; 
         }
-// austin 
+        
+        // austin DID
         public string GetFullWord()
         {
-            throw new System.NotImplementedException();
+            return this.fullWord;
         }
-// marielle
+        // marielle
         public string GetGuessedLetters()
         {
             throw new System.NotImplementedException();
         }
-//austin 
+        //austin DID
         public int GetGuessLimit()
         {
-            throw new System.NotImplementedException();
+            return this.guessLimit;
         }
-// marielle
+
+        // marielle
         public int GetIncorrectGuesses()
         {
             throw new System.NotImplementedException();
         }
-// austin 
+        // austin  DID
         public string GetWord()
         {
-            throw new System.NotImplementedException();
+            string word; 
+            word = string.Empty;
+
+            foreach (char c in this.fullWord)
+            {
+                if (this.guessedLetters.Contains(c))
+                {
+                    word += $"{c}";
+                }
+                else 
+                {
+                    word +="_";
+                }
+                string word.Trim();
+            }
         }
-// marielle
+        // marielle
         public bool IsGameOver()
         {
             throw new System.NotImplementedException();
         }
 
-        // austin
+        // austin DID 
         public bool IsGameWon()
         {
-            throw new System.NotImplementedException();
+            foreach (char c in this.fullWord)
+            {
+                if (this.lettersGuessed.Contains(c))
+                {
+                    return true bool;
+                }
+
+                else
+                {
+                    return false bool; 
+                }
+            }
         }
     }
 
