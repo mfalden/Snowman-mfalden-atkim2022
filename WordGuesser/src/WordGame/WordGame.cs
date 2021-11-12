@@ -5,7 +5,6 @@ namespace WordGuesser
 
     public class WordGame : IWordGame
     {
-        // marielle
 
         private string fullWord;
         private List<char> guesses;
@@ -27,7 +26,6 @@ namespace WordGuesser
                 }
             }
 
-            // TODO: Initialize member variables
             this.fullWord = wordToGuess.ToUpper();
             this.guessLimit = guessLimit;
             this.incorrectGuesses = 0;
@@ -39,13 +37,16 @@ namespace WordGuesser
             throw new System.NotImplementedException();
         }
     
-        // austin DID
-
+        /// <summary>
+        /// Counts how many times a letter appears in the word to guess.
+        /// </summary>
+        /// <param name="guess"></param>
+        /// <returns></returns>
         public int CountLetter(char guess)
         { 
             if (char.IsLetter(guess) == false)
             {
-                throw new ArgumentException("Invalid character:{guess}.");
+                throw new ArgumentException($"Invalid character:{guess}.");
             }
             else
             {
@@ -63,17 +64,25 @@ namespace WordGuesser
             } 
         }
         
-        // austin DID
+        /// <summary>
+        /// Retrieves full word to guess.
+        /// </summary>
+        /// <returns></returns>
         public string GetFullWord()
         {
             return this.fullWord;
         }
+
         // marielle
         public string GetGuessedLetters()
         {
             throw new System.NotImplementedException();
         }
-        //austin DID
+
+        /// <summary>
+        /// Retrieves the limit of how many times a player can guess.
+        /// </summary>
+        /// <returns></returns>
         public int GetGuessLimit()
         {
             return this.guessLimit;
@@ -84,9 +93,9 @@ namespace WordGuesser
         {
             throw new System.NotImplementedException();
         }
-        // austin  DID
+
         /// <summary>
-        /// 
+        /// Returns the word to be guessed with the unguessed letters as underscores.
         /// </summary>
         /// <returns></returns>
         public string GetWord()
@@ -113,7 +122,10 @@ namespace WordGuesser
             throw new System.NotImplementedException();
         }
 
-        // austin DID 
+        /// <summary>
+        /// Checks if the player has won the game and guessed the full word. 
+        /// </summary>
+        /// <returns></returns>
         public bool IsGameWon()
         {
             foreach (char c in this.fullWord)
