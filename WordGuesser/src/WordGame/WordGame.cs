@@ -8,7 +8,7 @@ namespace WordGuesser
         // marielle
 
         private string fullWord;
-        private List<char> lettersGuessed;
+        private List<char> guesses;
         private int incorrectGuesses;
         private int guessLimit;
 
@@ -28,10 +28,10 @@ namespace WordGuesser
             }
 
             // TODO: Initialize member variables
-            this.fullWord = wordToGuess;
+            this.fullWord = wordToGuess.ToUpper();
             this.guessLimit = guessLimit;
             this.incorrectGuesses = 0;
-            this.lettersGuessed = new List<char>();
+            this.guesses = new List<char>();
         }
 
         public string CheckGuess(string guess)
@@ -43,6 +43,8 @@ namespace WordGuesser
 
         public int CountLetter(char guess)
         {
+            int count;
+            count = 0; 
             if (char.IsLetter(guess) == false)
             {
                 throw new ArgumentException("Invalid character:{guess}.");
@@ -50,9 +52,6 @@ namespace WordGuesser
             else
             {
                 char.ToUpper(guess);
-                int count;
-                count = 0; 
-
                 foreach (char c in this.fullWord)
                 {
                     if (c == guess)
@@ -61,7 +60,7 @@ namespace WordGuesser
                     }
                 }
             }
-            int count; 
+            return count; 
         }
         
         // austin DID
@@ -86,23 +85,27 @@ namespace WordGuesser
             throw new System.NotImplementedException();
         }
         // austin  DID
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public string GetWord()
         {
-            string word; 
+            string word;
             word = string.Empty;
 
             foreach (char c in this.fullWord)
             {
-                if (this.guessedLetters.Contains(c))
+                if (this.guesses.Contains(c))
                 {
-                    word += $"{c}";
+                    word += $"{c} ";
                 }
                 else 
                 {
-                    word +="_";
+                    word += "_ ";
                 }
-                string word.Trim();
             }
+            return word.Trim();
         }
         // marielle
         public bool IsGameOver()
@@ -115,12 +118,11 @@ namespace WordGuesser
         {
             foreach (char c in this.fullWord)
             {
-                if (this.lettersGuessed.Contains(c))
+                if (this.guesses.Contains(c))
                 {
                     return true;
                 }
             }
-
             return false;
         }
     }
