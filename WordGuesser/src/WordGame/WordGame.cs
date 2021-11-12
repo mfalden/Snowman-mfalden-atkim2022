@@ -52,15 +52,15 @@ namespace WordGuesser
             guess = guess.Trim().ToUpper();
             if (guess.Length != 1)
             {
-                return "You must guess a single letter.";
+                return "You must guess a single letter";
             }
             else if (char.IsLetter(guess[0]) == false)
             {
-                return "You can only guess letters.";
+                return "You can only guess letters";
             }
             else if (this.guesses.Contains(guess[0]))
             {
-                return $"You've already guessed {guess}.";
+                return $"You've already guessed {guess}";
             }
             else if (this.fullWord.Contains(guess) == false)
             {
@@ -110,7 +110,7 @@ namespace WordGuesser
         {
             string letters;
             letters = string.Empty;
-            foreach (char c in this.fullWord)
+            foreach (char c in this.guesses)
             {
                 letters += $"{c}";
             }
