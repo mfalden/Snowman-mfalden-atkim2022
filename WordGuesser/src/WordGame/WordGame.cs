@@ -112,7 +112,7 @@ namespace WordGuesser
             letters = string.Empty;
             foreach (char c in this.guesses)
             {
-                letters += $"{c}";
+                letters += $"{c} ";
             }
 
             return letters.Trim();
