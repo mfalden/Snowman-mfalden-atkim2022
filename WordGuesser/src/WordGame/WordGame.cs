@@ -42,15 +42,15 @@ namespace WordGuesser
         // austin DID
 
         public int CountLetter(char guess)
-        {
-            int count;
-            count = 0; 
+        { 
             if (char.IsLetter(guess) == false)
             {
                 throw new ArgumentException("Invalid character:{guess}.");
             }
             else
             {
+                int count;
+                count = 0;
                 char.ToUpper(guess);
                 foreach (char c in this.fullWord)
                 {
@@ -59,8 +59,8 @@ namespace WordGuesser
                         count++;
                     }
                 }
-            }
-            return count; 
+                return count;
+            } 
         }
         
         // austin DID
