@@ -40,6 +40,7 @@ namespace WordGuesser
         }
     
         // austin DID
+
         public int CountLetter(char guess)
         {
             if (char.IsLetter(guess) == false)
@@ -49,7 +50,6 @@ namespace WordGuesser
             else
             {
                 char.ToUpper(guess);
-                guess = Result;
                 int count;
                 count = 0; 
 
@@ -57,7 +57,7 @@ namespace WordGuesser
                 {
                     if (c == guess)
                     {
-                        count = count + 1;
+                        count++;
                     }
                 }
             }
@@ -117,14 +117,11 @@ namespace WordGuesser
             {
                 if (this.lettersGuessed.Contains(c))
                 {
-                    return true bool;
-                }
-
-                else
-                {
-                    return false bool; 
+                    return true;
                 }
             }
+
+            return false;
         }
     }
 
