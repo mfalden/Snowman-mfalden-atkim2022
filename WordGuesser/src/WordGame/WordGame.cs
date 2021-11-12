@@ -86,7 +86,24 @@ namespace WordGuesser
         // austin 
         public int CountLetter(char guess)
         {
-            throw new System.NotImplementedException();
+            if (char.IsLetter(guess) == false)
+            {
+                throw new ArgumentException($"Invalid character:{guess}.");
+            }
+            else
+            {
+                char.ToUpper(guess);
+                int count;
+                count = 0;
+                foreach (char c in this.fullWord)
+                {
+                    if (c == guess)
+                    {
+                        count++;
+                    }
+                }
+                return count;
+            }
         }
 
 // in class 
