@@ -6,9 +6,9 @@ namespace WordGuesser
     public class WordGame : IWordGame
     {
         private string fullWord;
-        private int guessLimit;
-        private int incorrectGuesses;
         private List<char> guesses;
+        private int incorrectGuesses;
+        private int guessLimit;
 
         public WordGame(string wordToGuess, int guessLimit)
         {
@@ -30,9 +30,6 @@ namespace WordGuesser
             this.incorrectGuesses = 0;
             this.guesses = new List<char>();
         }
-
-
-// marielle
 
         /// <summary>
         /// Checks a users guess and returns a string message informing them of the result and updating the game state as necessary.<br/>
@@ -72,6 +69,7 @@ namespace WordGuesser
             {
                 int count;
                 count = this.CountLetter(guess[0]);
+                this.guesses.Add(guess[0]);
                 if (count == 1)
                 {
                     return $"There is 1 {guess}";
@@ -82,14 +80,35 @@ namespace WordGuesser
                 }
             }
         }
-
-        // austin 
+        /// <summary>
+        /// Counts the number of times the specified character appears in the word to be guessed.
+        /// The case of the letter specified is ignored.
+        /// </summary>
+        /// <param name="guess">The guess to check.</param>
+        /// <exception cref="System.ArgumentException">Thrown if the specified guess is not a letter.</exception>
+        /// <returns>The number of times the specified character appears in the word to be guessed.</returns>
         public int CountLetter(char guess)
         {
-            throw new System.NotImplementedException();
-        }
+            if (char.IsLetter(guess) == false)
+            {
+                throw new ArgumentException($"Invalid character:{guess}.");
+            }
+            else
+            {
+                int count;
+                count = 0;
+                guess = char.ToUpper(guess);
+                foreach (char c in this.fullWord)
+                {
+                    if (c == guess)
+                    {
+                        count++;
+                    }
+                }
 
-// in class 
+                return count;
+            }
+        }
 
         /// <summary>
         /// Returns the word that is to be guessed without any missing letters.
@@ -99,8 +118,6 @@ namespace WordGuesser
         {
             return this.fullWord;
         }
-
-// marielle
 
         /// <summary>
         /// Returns a string containing each letter that has been guessed in the order that they were guessed.
@@ -112,13 +129,11 @@ namespace WordGuesser
             letters = string.Empty;
             foreach (char c in this.guesses)
             {
-                letters += $"{c}";
+                letters += $" {c}";
             }
 
             return letters.Trim();
         }
-
-// in class
 
         /// <summary>
         /// Returns the guess limit.
@@ -129,8 +144,6 @@ namespace WordGuesser
             return this.guessLimit;
         }
 
-// marielle
-
         /// <summary>
         /// Returns the guess limit.
         /// </summary>
@@ -140,13 +153,30 @@ namespace WordGuesser
             return this.incorrectGuesses;
         }
 
-        // austin 
+        /// <summary>
+        /// Returns the word that is to be guessed with each letter that has
+        /// not yet been guessed replaced with an underscore.
+        /// </summary>
+        /// <returns>The word that is to be guessed with hidden letters.</returns>
         public string GetWord()
         {
-            throw new System.NotImplementedException();
-        }
+            string word;
+            word = string.Empty;
 
-// marielle
+            foreach (char c in this.fullWord)
+            {
+                if (this.guesses.Contains(c))
+                {
+                    word += $"{c} ";
+                }
+                else
+                {
+                    word += "_ ";
+                }
+            }
+
+            return word.Trim();
+        }
 
         /// <summary>
         /// Returns the number of incorrect guesses.
@@ -157,11 +187,22 @@ namespace WordGuesser
             return this.incorrectGuesses >= this.guessLimit;
         }
 
-        // austin
+        /// <summary>
+        /// Checks if this game has been won. A game is considered won if
+        /// all of the letters in the word to be guessed have been guessed.
+        /// </summary>
+        /// <returns>true if the game has been one and false otherwise.</returns>
         public bool IsGameWon()
         {
-            throw new System.NotImplementedException();
+            foreach (char c in this.fullWord)
+            {
+                if (!this.guesses.Contains(c))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
-
 }
