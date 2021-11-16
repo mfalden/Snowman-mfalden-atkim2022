@@ -115,7 +115,7 @@ public int CountLetter(char guess)
 
 ### 3c ii.
 
-The second program code segment must show where your student-developed procedure is being called in your program.
+The second program code segment must show where your student developed procedure is being called in your program.
 
 ```csharp
 else
