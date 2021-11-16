@@ -89,8 +89,28 @@ The first program code segment must be a student-developed procedure that:
 - [ ] Implements an algorithm that includes sequencing, selection, and iteration
 
 ```csharp
-// TODO: Select a method that meets all of the requirements.
-// I recommend your Constructor or CountLetter
+public int CountLetter(char guess)
+        {
+            if (char.IsLetter(guess) == false)
+            {
+                throw new ArgumentException($"Invalid character:{guess}.");
+            }
+            else
+            {
+                int count;
+                count = 0;
+                guess = char.ToUpper(guess);
+                foreach (char c in this.fullWord)
+                {
+                    if (c == guess)
+                    {
+                        count++;
+                    }
+                }
+
+                return count;
+            }
+        }
 ```
 
 ### 3c ii.
@@ -98,14 +118,27 @@ The first program code segment must be a student-developed procedure that:
 The second program code segment must show where your student-developed procedure is being called in your program.
 
 ```csharp
-// TODO: Add code showing where the procedure is being called
+else
+            {
+                int count;
+                count = this.CountLetter(guess[0]);
+                this.guesses.Add(guess[0]);
+                if (count == 1)
+                {
+                    return $"There is 1 {guess}";
+                }
+                else
+                {
+                    return $"There are {count} {guess}s";
+                }
+            }
 ```
 
 ### 3c iii.
 
 Describes in general what the identified procedure does and how it contributes to the overall functionality of the program.
 
-**TODO: Explain at a high level what this method does and when it is called**
+CountLetter counts the amount of times a guessed letter appears in the word to guess. In the program, the CountLetter procedure is used to present the amount of times a guessed letter appears in a word to the player.
 
 ### 3c iv.
 
@@ -123,11 +156,11 @@ Describes two calls to the procedure identified in written response 3c. Each cal
 
 First call:
 
-**TODO: Complete this section**
+Using char guess, if someone guesses a "!" for target word "apple"
 
 Second call:
 
-**TODO: Complete this section**
+Using char guess, if someone guesses a "p" for target word "apple"
 
 ### 3d ii.
 
@@ -135,11 +168,11 @@ Describes what condition(s) is being tested by each call to the procedure
 
 Condition(s) tested by the first call:
  
-**TODO: Complete this section**
+If "!" is a valid letter in the english alphabet. If valid, will move on to count the amount of times "!" appears in the word "apple"
 
 Condition(s) tested by the second call:
 
-**TODO: Complete this section**
+If "p" is a valid letter in the english alphabet. If valid, will move on to count the amount of times "p" appears in the word "apple"
 
 ### 3d iii.
 
