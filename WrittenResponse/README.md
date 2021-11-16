@@ -36,7 +36,7 @@ used to manage complexity in your program.
 The first program code segment must show how data have been stored in the list.
 
 ```csharp
-// TODO: Copy The line of code here for which you are adding data to a list
+ this.guesses.Add(guess[0]);
 ```
 
 ### 3b ii.
@@ -46,7 +46,10 @@ such as creating new data from the existing data or accessing multiple elements
 in the list, as part of fulfilling the program's purpose.
 
 ```csharp
-// TODO: Show a foreach loop accessing each element of the list from 3bi
+foreach (char c in this.guesses)
+            {
+                letters += $" {c}";
+            }
 ```
 
 ### 3b iii.
@@ -55,14 +58,13 @@ Then provide a written response that does all three of the following:
 
 Identifies the name of the list being used in this response
 
-**TODO: Write, "The list is stored in the variable {INSERT VARIABLE NAME
-HERE}"**
+The list is stored in the variable {guesses}
 
 ### 3b iv.
 
 Describes what the data contained in the list represents in your program
 
-**TODO: Write a sentence describing what is stored in the list**
+The list stores all of the player's previous valid guesses.  
 
 ### 3b v.
 
@@ -70,8 +72,7 @@ Explains how the selected list manages complexity in your program code by
 explaining why your program code could not be written, or how it would be
 written differently, if you did not use the list.
 
-**TODO: Explain why it would be very difficult (or impossible) to write 
-the guessing game without using the list.**
+Without a list, I would need 26  variables to track the guesses a player made. For example I would need a variable to track 26 possible incorrect guesses for a guessing game with a range from A-Z in the alphabet. This many variables would not be very useful or efficient. To account for duplicate guesses, you would need almost an infinite amount of variables. So without a list, it would be difficult to print out all of the players guesses. 
 
 ## 3c.
 
@@ -110,7 +111,7 @@ Describes in general what the identified procedure does and how it contributes t
 
 Explains in detailed steps how the algorithm implemented in the identified procedure works. Your explanation must be detailed enough for someone else to recreate it.
 
-**TODO: In English, explain step by step what your procedure does. Be sure to use the word `Selection` and `Iteration` to explain what it does.**
+First, it selects if the player's guess is a letter. If that is false, then it prints out a message saying the guess is invalid. If the guess was a letter, then it will iterate through a loop; for every time the character appears in the word to be guessed, the count will increase by 1.
 
 ## 3d
 
@@ -144,8 +145,8 @@ Condition(s) tested by the second call:
 
 Result of the first call:
 
-**TODO: Complete this section**
+Because ! is not a valid letter, this prints "Invalid character: {guess}." 
 
 Result of the second call:
 
-**TODO: Complete this section**
+This will result in a count of 2 since 'p' appears in 'apple' 2 times.  
